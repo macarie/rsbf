@@ -21,7 +21,7 @@ pub enum VMInstruction {
     Loop(Vec<VMInstruction>),
 }
 
-pub fn lexer(source_code: &String) -> Vec<BFInstruction> {
+pub fn lexer(source_code: &str) -> Vec<BFInstruction> {
     let mut bf_instructions: Vec<BFInstruction> = Vec::new();
 
     for character in source_code.chars() {
