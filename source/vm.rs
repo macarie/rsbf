@@ -40,23 +40,23 @@ pub fn lexer(source_code: &str) -> Vec<BFInstruction> {
         }
     }
 
-    return bf_instructions;
+    bf_instructions
 }
 
 fn infer_increment_direction(bf_instruction: &BFInstruction) -> i8 {
-    return match bf_instruction {
+    match bf_instruction {
         BFInstruction::Increment => 1,
         BFInstruction::Decrement => -1,
         _ => 0,
-    };
+    }
 }
 
 fn infer_move_direction(bf_instruction: &BFInstruction) -> isize {
-    return match bf_instruction {
+    match bf_instruction {
         BFInstruction::MoveRight => 1,
         BFInstruction::MoveLeft => -1,
         _ => 0,
-    };
+    }
 }
 
 fn parse_internal(
@@ -109,7 +109,7 @@ fn parse_internal(
         index += 1
     }
 
-    return index;
+    index
 }
 
 pub fn parse(bf_instructions: &[BFInstruction]) -> Vec<VMInstruction> {
@@ -117,7 +117,7 @@ pub fn parse(bf_instructions: &[BFInstruction]) -> Vec<VMInstruction> {
 
     parse_internal(bf_instructions, &mut vm_instructions);
 
-    return vm_instructions;
+    vm_instructions
 }
 
 fn exec_vm_instructions(
@@ -170,7 +170,7 @@ pub fn run(
         writer,
     );
 
-    return memory;
+    memory
 }
 
 #[cfg(test)]
